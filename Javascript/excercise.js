@@ -39,28 +39,45 @@
 // Tham số:
 //	- array: mảng gốc
 //	- n: số phần tử trả về
-function first(array, n) {
-    // viết code ở đây.
-    let takeIndex = n ? (n < 0 ? 0 : n): 1;
+// function first(array, n) {
+//     // viết code ở đây.
+//     let takeIndex = n ? (n < 0 ? 0 : n): 1;
+//     var result = array.slice(0, takeIndex);
+//     console.log(result, takeIndex);
+//     return result;
+// }
 
+// // Test 1: expect: [7]
+// first([7, 9, 0, -2])
 
-    var result = array.slice(0, takeIndex);
+// // Test 2. Expect: [7, 9, 0]
+// first([7, 9, 0, -2], 3)
 
-    console.log(result, takeIndex);
-    return result;
+// // Test 3. Expect: [7, 9, 0, -2]
+// first([7, 9, 0, -2], 6)
+
+// // Test 4. Expect: []
+// first([7, 9, 0, -2], -3)
+
+/* Excercise 9*/
+//Viết function omitCharAt  trả về chuỗi đã được loại bỏ ký tại vị trí n bất kỳ
+//Lưu ý cho chuỗi 'abcd' :
+// 		element    'a'|'b'|'c'|'d'
+//		index 	    0	|	1	|	2	|	3
+//  n = 1 ------------------- 'acd'
+//  n = 2 ------------------- 'abd'
+
+function omitCharAt(str, n) {
+    // viết code ở đây.	
+    let substr =str.slice(0, n) + str.slice(n+1);
+    console.log(substr);
+
+    return substr;
 }
 
-// Test 1: expect: [7]
-first([7, 9, 0, -2])
+// Test 1. Expect: "Hello Qung Dat"
+omitCharAt("Hello Quang Dat", 8);
 
-// Test 2. Expect: [7, 9, 0]
-first([7, 9, 0, -2], 3)
-
-// Test 3. Expect: [7, 9, 0, -2]
-first([7, 9, 0, -2], 6)
-
-// Test 4. Expect: []
-first([7, 9, 0, -2], -3)
-
-
+// Test 2. Expect: "ello Quang Dat"
+omitCharAt("Hello Quang Dat", 0);
 

@@ -1,4 +1,4 @@
-/* Bài 6 */ 
+/* Bài 6 */
 /*
   - Viết hàm findMaxDiff nhận tham số là một mảng integer (mảng số nguyên)
   - Trả về sự khác biệt lớn nhất giữa hai phần tử liền kề của mảng đó.
@@ -25,15 +25,42 @@
 //output : true or false
 //=============================
 
-function equal_pt(str){ 
-    let countOfp = str.match(/p/g) ? str.match(/p/g).length : 0;
-    let countOft = str.match(/t/g) ? str.match(/t/g).length : 0;
-    return countOfp === countOft ? true : false;
+// function equal_pt(str){ 
+//     let countOfp = str.match(/p/g) ? str.match(/p/g).length : 0;
+//     let countOft = str.match(/t/g) ? str.match(/t/g).length : 0;
+//     return countOfp === countOft ? true : false;
+// }
+
+//    let a = "aaaaaaa";
+
+//   console.log( equal_pt(a));
+
+// viết hàm first trả về giá trị đầu tiên của mảng, nếu n được truyền vào thì trả về 1 mảng chứa n giá trị đầu tiên của mảng (hoặc cả mảng nếu n lớn hơn số phần tử của mảng). Nếu n <= 0 thì trả về mảng trống.
+// Tham số:
+//	- array: mảng gốc
+//	- n: số phần tử trả về
+function first(array, n) {
+    // viết code ở đây.
+    let takeIndex = n ? (n < 0 ? 0 : n): 1;
+
+
+    var result = array.slice(0, takeIndex);
+
+    console.log(result, takeIndex);
+    return result;
 }
 
-   let a = "aaaaaaa";
+// Test 1: expect: [7]
+first([7, 9, 0, -2])
 
-  console.log( equal_pt(a));
+// Test 2. Expect: [7, 9, 0]
+first([7, 9, 0, -2], 3)
+
+// Test 3. Expect: [7, 9, 0, -2]
+first([7, 9, 0, -2], 6)
+
+// Test 4. Expect: []
+first([7, 9, 0, -2], -3)
 
 
 

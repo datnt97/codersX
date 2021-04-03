@@ -111,29 +111,60 @@
   - number2: số nguyên thứ hai
 */
 
-function checkInt(number1, number2) {
-  // viết code ở đây.	
-  if (number1 == 0 || number2 == 0) {
-    return false;
-  }
-  let result = number1 < 0 && number2 > 0 ||
-    number1 > 0 && number2 < 0 ?
-    true :
-    false;
+// function checkInt(number1, number2) {
+//   // viết code ở đây.	
+//   if (number1 == 0 || number2 == 0) {
+//     return false;
+//   }
+//   let result = number1 < 0 && number2 > 0 ||
+//     number1 > 0 && number2 < 0 ?
+//     true :
+//     false;
+
+//   console.log(result);
+//   return result;
+// }
+
+// // Test 1 - Expect: true
+// checkInt(-1, 2);
+
+// // Test 2 - Expect: false
+// checkInt(2, 6);
+
+// // Test 3 - Expect: false
+// checkInt(-2, -6);
+
+// // Test 4 - Expect: true
+// checkInt(2, -6);
+
+/* --------------------- */
+
+// Excersice 12 
+/*
+Viết một hàm JavaScript có 1 tham số n trả về tuyệt đối của hiệu só đó và 13, 
+nếu số đó lớn hơn 13 trả về gấp đôi tuyệt đối của hiệu 2 số.
+Example: 
+n = 20 // return 14
+n = 5 // return 8
+
+*/
+function difference(n) {
+  // viết code ở đây.
+  let diff = Math.abs(n - 13);
+  let result = n > 13 ? diff * 2 : diff;
 
   console.log(result);
   return result;
 }
 
-// Test 1 - Expect: true
-checkInt(-1, 2);
+// Test 1 - Expect: 12
+difference(19);
 
-// Test 2 - Expect: false
-checkInt(2, 6);
+// Test 2 - Expect: 10
+difference(3);
 
-// Test 3 - Expect: false
-checkInt(-2, -6);
+// Test 3 - Expect: 12
+difference(1);
 
-// Test 4 - Expect: true
-checkInt(2, -6);
-
+// Test 4 - Expect: 14
+difference(20)

@@ -222,17 +222,41 @@ thành ký tự theo sau nó trong bảng chữ cái. Ví dụ: "Hello" chuyển
 // Excercise 15
 // viết hàm tạo mới một 1 string từ n ký tự từ vị trí đầu và cuối của chuỗi cũ
 // newString("1wyg5yhd45", 2) // "1w45"
-function newString(str, n) {
-  // viết code ở đây.
-  let result = str.slice(0, n).concat(str.slice(str.length - n));
+// function newString(str, n) {
+//   // viết code ở đây.
+//   let result = str.slice(0, n).concat(str.slice(str.length - n));
+
+//   console.log(result);
+
+//   return result;
+// }
+
+// // Test 1 - Expect: 'dele'
+// newString('describe', 2);
+
+// // Test 2 - Expect: gsd5gs
+// newString('gsdrw4rfergf45gs0', 3);
+
+/* ----------- */ 
+/* Excercise 16 
+Write a function that splits an array (first argument) into groups 
+the length of size(second argument) and returns them as a two-dimensional array.
+Example
+ chunkArrayInGroups(["a", "b", "c", "d", "e"], 2) // [["a", "b"], ["c", "d"], ["e"]]
+*/
+function chunkArrayInGroups(arr, size){
+  // write code here.
+  let result = [];
+  for (let i = 0; i < arr.length; i += size) {
+    result.push(arr.slice(i, i + size))
+  }
 
   console.log(result);
 
   return result;
 }
 
-// Test 1 - Expect: 'dele'
-newString('describe', 2);
+// Test 1 - Expect: [["a", "b"], ["c", "d"]]
+chunkArrayInGroups(["a", "b", "c", "d"], 2);
 
-// Test 2 - Expect: gsd5gs
-newString('gsdrw4rfergf45gs0', 3);
+

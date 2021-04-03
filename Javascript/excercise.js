@@ -177,19 +177,43 @@ Tham số:
 - String: chuỗi nhập vào lúc đầu.
 */
 
-function pyString(String) {
-  // viết code ở đây.
-  const py = 'Py';
-  let result = String.startsWith('Py') ? String : py.concat(String);
+// function pyString(String) {
+//   // viết code ở đây.
+//   const py = 'Py';
+//   let result = String.startsWith('Py') ? String : py.concat(String);
+//   console.log(result);
+//   return result;
+// }
+
+// // Test 1 - Expect: "PyCoders X"
+// pyString("Coders X")
+
+// // Test 2 - Expect: "PyHello"
+// pyString("PyHello")
+
+/* ---------------- */
+/* Excercise 14
+Viết hàm toNextChar dùng để thay thế mọi ký tự trong một chuỗi 
+thành ký tự theo sau nó trong bảng chữ cái. Ví dụ: "Hello" chuyển thành "Ifmmp"
+// Tham số:
+// - String: chuỗi nhập vào ban đầu.
+*/
+function toNextChar(str) {
+  // viết code ở đây.	
+  let characterCodes  = [];
+  for (let i = 0; i < str.length; i++) {
+    var charNextCode = str.charCodeAt(i) + 1;
+    characterCodes.push(String.fromCharCode(charNextCode));
+  }
+  
+  let result = characterCodes.join(''); 
   console.log(result);
+
   return result;
 }
 
-// Test 1 - Expect: "PyCoders X"
-pyString("Coders X")
+// Test 1 - Expect: "Ifmmp"
+toNextChar('Hello');
 
-// Test 2 - Expect: "PyHello"
-pyString("PyHello")
-
-
-
+// Test 2 - Expect: 'bcd'
+toNextChar('abc');

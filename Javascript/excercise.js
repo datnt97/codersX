@@ -67,17 +67,40 @@
 //  n = 1 ------------------- 'acd'
 //  n = 2 ------------------- 'abd'
 
-function omitCharAt(str, n) {
-    // viết code ở đây.	
-    let substr =str.slice(0, n) + str.slice(n+1);
-    console.log(substr);
+// function omitCharAt(str, n) {
+//     // viết code ở đây.	
+//     let substr =str.slice(0, n) + str.slice(n+1);
+//     console.log(substr);
 
-    return substr;
-}
+//     return substr;
+// }
 
-// Test 1. Expect: "Hello Qung Dat"
-omitCharAt("Hello Quang Dat", 8);
+// // Test 1. Expect: "Hello Qung Dat"
+// omitCharAt("Hello Quang Dat", 8);
 
-// Test 2. Expect: "ello Quang Dat"
-omitCharAt("Hello Quang Dat", 0);
+// // Test 2. Expect: "ello Quang Dat"
+// omitCharAt("Hello Quang Dat", 0);
+
+/* Excercise 10 */
+// Viết hàm nhận vào 2 số a, b
+// Trả về số gần 100 nhất
+// nearestTo100(89, 180) // 89
+// function nearestTo100(a, b) {
+//     // viết code ở đây.
+//     let aDiff = a - 100;
+//     let bDiff = b - 100;
+//     let result =  Math.abs(aDiff) < Math.abs(bDiff) ? a : b;
+//     console.log(result);
+
+//     return result;
+// }
+
+// // Test 1: Expect: 89
+// nearestTo100(89, 189);
+
+// // Test 2: Expect: 130
+// nearestTo100(10, 130);
+
+
+
 

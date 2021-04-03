@@ -148,23 +148,48 @@ n = 20 // return 14
 n = 5 // return 8
 
 */
-function difference(n) {
-  // viết code ở đây.
-  let diff = Math.abs(n - 13);
-  let result = n > 13 ? diff * 2 : diff;
+// function difference(n) {
+//   // viết code ở đây.
+//   let diff = Math.abs(n - 13);
+//   let result = n > 13 ? diff * 2 : diff;
 
+//   console.log(result);
+//   return result;
+// }
+
+// // Test 1 - Expect: 12
+// difference(19);
+
+// // Test 2 - Expect: 10
+// difference(3);
+
+// // Test 3 - Expect: 12
+// difference(1);
+
+// // Test 4 - Expect: 14
+// difference(20)
+
+/* ------------ */
+/* Excecise 13 
+Viết hàm pyString để tạo chuỗi mới thêm "Py" trước chuỗi nhập vào. 
+Nếu chuỗi đã cho đã bắt đầu bằng "Py" thì hãy trả về chuỗi gốc (không cần thêm).
+Tham số:
+- String: chuỗi nhập vào lúc đầu.
+*/
+
+function pyString(String) {
+  // viết code ở đây.
+  const py = 'Py';
+  let result = String.startsWith('Py') ? String : py.concat(String);
   console.log(result);
   return result;
 }
 
-// Test 1 - Expect: 12
-difference(19);
+// Test 1 - Expect: "PyCoders X"
+pyString("Coders X")
 
-// Test 2 - Expect: 10
-difference(3);
+// Test 2 - Expect: "PyHello"
+pyString("PyHello")
 
-// Test 3 - Expect: 12
-difference(1);
 
-// Test 4 - Expect: 14
-difference(20)
+

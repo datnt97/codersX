@@ -198,22 +198,41 @@ thành ký tự theo sau nó trong bảng chữ cái. Ví dụ: "Hello" chuyển
 // Tham số:
 // - String: chuỗi nhập vào ban đầu.
 */
-function toNextChar(str) {
-  // viết code ở đây.	
-  let characterCodes  = [];
-  for (let i = 0; i < str.length; i++) {
-    var charNextCode = str.charCodeAt(i) + 1;
-    characterCodes.push(String.fromCharCode(charNextCode));
-  }
-  
-  let result = characterCodes.join(''); 
+// function toNextChar(str) {
+//   // viết code ở đây.	
+//   let characterCodes  = [];
+//   for (let i = 0; i < str.length; i++) {
+//     var charNextCode = str.charCodeAt(i) + 1;
+//     characterCodes.push(String.fromCharCode(charNextCode));
+//   }
+
+//   let result = characterCodes.join(''); 
+//   console.log(result);
+
+//   return result;
+// }
+
+// // Test 1 - Expect: "Ifmmp"
+// toNextChar('Hello');
+
+// // Test 2 - Expect: 'bcd'
+// toNextChar('abc');
+
+/* ------------------------------ */
+// Excercise 15
+// viết hàm tạo mới một 1 string từ n ký tự từ vị trí đầu và cuối của chuỗi cũ
+// newString("1wyg5yhd45", 2) // "1w45"
+function newString(str, n) {
+  // viết code ở đây.
+  let result = str.slice(0, n).concat(str.slice(str.length - n));
+
   console.log(result);
 
   return result;
 }
 
-// Test 1 - Expect: "Ifmmp"
-toNextChar('Hello');
+// Test 1 - Expect: 'dele'
+newString('describe', 2);
 
-// Test 2 - Expect: 'bcd'
-toNextChar('abc');
+// Test 2 - Expect: gsd5gs
+newString('gsdrw4rfergf45gs0', 3);

@@ -237,26 +237,71 @@ thành ký tự theo sau nó trong bảng chữ cái. Ví dụ: "Hello" chuyển
 // // Test 2 - Expect: gsd5gs
 // newString('gsdrw4rfergf45gs0', 3);
 
-/* ----------- */ 
+/* ----------- */
 /* Excercise 16 
 Write a function that splits an array (first argument) into groups 
 the length of size(second argument) and returns them as a two-dimensional array.
 Example
  chunkArrayInGroups(["a", "b", "c", "d", "e"], 2) // [["a", "b"], ["c", "d"], ["e"]]
 */
-function chunkArrayInGroups(arr, size){
-  // write code here.
-  let result = [];
-  for (let i = 0; i < arr.length; i += size) {
-    result.push(arr.slice(i, i + size))
+// function chunkArrayInGroups(arr, size){
+//   // write code here.
+//   let result = [];
+//   for (let i = 0; i < arr.length; i += size) {
+//     result.push(arr.slice(i, i + size))
+//   }
+
+//   console.log(result);
+
+//   return result;
+// }
+
+// // Test 1 - Expect: [["a", "b"], ["c", "d"]]
+// chunkArrayInGroups(["a", "b", "c", "d"], 2);
+
+/* -------------------------- */
+/* Excercise 17 
+Write a function return maximum possible sum of some of its k consecutive numbers 
+(numbers that follow each other in order.) of a given array of positive integers
+*/
+
+// function calculatorMax(max, arr, k) {
+//   if (k > 0) {
+//     let maxItem = Math.max(...arr);
+//     max += maxItem;
+//     arr = arr.filter(x => x < maxItem);
+//     k--;
+//     calculatorMax(max, arr, k)
+//   }
+//   else { 
+//     console.log(max);
+//     return max;
+//   }
+// }
+
+
+function maxOfSumChain(arr, k) {
+  // write code here.  
+  let result = 0;
+
+  for (let i = 0; i < k; i++) {
+    let maxItem = Math.max(...arr);
+    arr = arr.filter(x => x < maxItem);
+    result += maxItem;
   }
 
   console.log(result);
-
   return result;
+
 }
 
-// Test 1 - Expect: [["a", "b"], ["c", "d"]]
-chunkArrayInGroups(["a", "b", "c", "d"], 2);
 
+
+
+
+// Test 1 - Expect: 5
+maxOfSumChain([1, 3, 2], 2);
+
+// Test 2 - Expect: 11
+maxOfSumChain([1, 3, 2, 6, 2], 3);
 

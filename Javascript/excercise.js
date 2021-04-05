@@ -411,34 +411,62 @@ Input: abx abb
 Output: False
 */
 
-function rearrangeChar(str1, str2) {
-  // Viết code tại đây!
-  let arr1= [];
-  let arr2 = [];
+// function rearrangeChar(str1, str2) {
+//   // Viết code tại đây!
+//   let arr1= [];
+//   let arr2 = [];
 
-  if (str1.length != str2.length) {
-    return false;
-  }
+//   if (str1.length != str2.length) {
+//     return false;
+//   }
 
-  for (let i = 0; i < str1.length; i++) {
-    arr1.push(str1.charCodeAt(i));
-    arr2.push(str2.charCodeAt(i));
-  }
+//   for (let i = 0; i < str1.length; i++) {
+//     arr1.push(str1.charCodeAt(i));
+//     arr2.push(str2.charCodeAt(i));
+//   }
 
-  arr1.sort();
-  arr2.sort();
+//   arr1.sort();
+//   arr2.sort();
 
-  for(let i = 0; i< arr1.length; i++) {
-    if (arr1[i] != arr2[i]) 
-    {
-      return false;
-    }
-  }
+//   for(let i = 0; i< arr1.length; i++) {
+//     if (arr1[i] != arr2[i]) 
+//     {
+//       return false;
+//     }
+//   }
 
-  return true;
+//   return true;
+// }
+
+// let a = rearrangeChar('abb', 'abc');
+// let b = rearrangeChar('abc', 'bac');
+// console.log(a, b);
+
+/* ------------------ */
+/* Excercise 20
+Hãy viết một hàm để tìm giá trị lớn nhất có thể đạt được 
+của hiệu 2 số bất kì trong dãy số
+
+Input: là một dãy số.
+Output: giá trị lớn nhất có thể đạt được của hiệu 2 số bất kì trong dãy số.
+
+Ví dụ:
+
+Input: [1, 2, 3, 8, 9]
+Output: 8 (là hiệu của 9 và 1)
+
+*/
+
+function findmaxDiff(arr){
+  // Viết code tại đây
+  let max = Math.max(...arr);
+  let min = Math.min(...arr);
+
+  let result = max - min;
+
+  console.log(result);
+  return result;
 }
 
-let a = rearrangeChar('abb', 'abc');
-let b = rearrangeChar('abc', 'bac');
-console.log(a, b);
-
+let arr = [1, 2, 3, 8, 9];
+findmaxDiff(arr);

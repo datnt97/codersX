@@ -311,83 +311,134 @@ ví dụ:
 Input: [1,2,3,4,1,2,2,1]
 Output: [1,2]*/
 
-function findMostFrequent(arr) {
+// function findMostFrequent(arr) {
+//   // Viết code tại đây!
+//   let start = +new Date();
+//   let resultArray = [];
+//   let item;
+//   let repetitionItem;
+//   do {
+//     item = arr[0];
+//     repetitionItem = arr.filter(x => x == item).length;
+//     resultArray.push({
+//       item: item,
+//       repetitionItem: repetitionItem
+//     });
+//     arr = arr.filter(x => x != item);
+//   } while (arr.length > 0);
+
+//   // let rsArray = arr.reduce((a, b) => {
+//   //   a[b] = a[b] + 1 || 1;
+//   // }, {});
+
+//   let repeArray = resultArray.map(item => {
+//     return item.repetitionItem
+//   });
+//   let max = Math.max(...repeArray);
+
+//   let result = [];
+//   resultArray.map(item => {
+//     if (item.repetitionItem == max) {
+//       result.push(item.item);
+//     }
+//   });
+//   let end = +new Date();
+//   console.log(`my function ${end - start} ms`)
+//   console.log(result);
+//   return result;
+
+// }
+
+
+// var arr = [2, 2, 2, 2, 2, 4, 5, 5, 5, 9];
+
+
+// function arrayRandom(max, index) {
+//   let resultArray = [];
+//   for (let i = 0; i < index; i++) {
+//     resultArray.push(Math.floor(Math.random() * max));
+//   }
+
+//   return resultArray;
+// }
+
+// let testArray = arrayRandom(10, 10000000);
+
+// function foo(arr) {
+//   let start = +new Date();
+
+//   let str = arr.reduce((a, b) => {
+//     a[b] = a[b] + 1 || 1
+//     return a;
+//   }, {});
+
+//   var a = Object.values(str);
+//   var max = Math.max(...a);
+
+//   let rs = Object.entries(str).filter((value) => {
+//     return value[1] == max;
+//   })
+//   let result = rs.map(item => {
+//     return parseInt(item);
+//   })
+//   let end = +new Date();
+
+//   console.log(`Excution time: ${end - start} ms.`);
+//   console.log(result);
+//   return result;
+// }
+
+// findMostFrequent(testArray)
+
+// foo(testArray)
+
+
+/* -------------------- */
+
+/* Excercise 19
+Hãy viết một hàm để kiểm tra xem có thể sắp xếp các kí tự 
+của 1 chuỗi String cho trước thành 1 chuỗi String cho trước khác không?
+
+Input: 2 chuỗi String
+Output: True hoặc False
+
+ví dụ:
+
+Input: abc cba
+Output: True
+
+Input: abx abb
+Output: False
+*/
+
+function rearrangeChar(str1, str2) {
   // Viết code tại đây!
-  let start = +new Date();
-  let resultArray = [];
-  let item;
-  let repetitionItem;
-  do {
-    item = arr[0];
-    repetitionItem = arr.filter(x => x == item).length;
-    resultArray.push({
-      item: item,
-      repetitionItem: repetitionItem
-    });
-    arr = arr.filter(x => x != item);
-  } while (arr.length > 0);
+  let arr1= [];
+  let arr2 = [];
 
-  // let rsArray = arr.reduce((a, b) => {
-  //   a[b] = a[b] + 1 || 1;
-  // }, {});
-
-  let repeArray = resultArray.map(item => {
-    return item.repetitionItem
-  });
-  let max = Math.max(...repeArray);
-
-  let result = [];
-  resultArray.map(item => {
-    if (item.repetitionItem == max) {
-      result.push(item.item);
-    }
-  });
-  let end = +new Date();
-  console.log(`my function ${end - start} ms`)
-  console.log(result);
-  return result;
-
-}
-
-
-var arr = [2, 2, 2, 2, 2, 4, 5, 5, 5, 9];
-
-
-function arrayRandom(max, index) {
-  let resultArray = [];
-  for (let i = 0; i < index; i++) {
-    resultArray.push(Math.floor(Math.random() * max));
+  if (str1.length != str2.length) {
+    return false;
   }
 
-  return resultArray;
+  for (let i = 0; i < str1.length; i++) {
+    arr1.push(str1.charCodeAt(i));
+    arr2.push(str2.charCodeAt(i));
+  }
+
+  arr1.sort();
+  arr2.sort();
+
+  for(let i = 0; i< arr1.length; i++) {
+    if (arr1[i] != arr2[i]) 
+    {
+      return false;
+    }
+  }
+
+  return true;
 }
 
-let testArray = arrayRandom(10, 10000000);
+let a = rearrangeChar('abb', 'abc');
+let b = rearrangeChar('abc', 'bac');
+console.log(a, b);
 
-function foo(arr) {
-  let start = +new Date();
-
-  let str = arr.reduce((a, b) => {
-    a[b] = a[b] + 1 || 1
-    return a;
-  }, {});
-
-  var a = Object.values(str);
-  var max = Math.max(...a);
-
-  let rs = Object.entries(str).filter((value) => {
-    return value[1] == max;
-  })
-  let result = rs.map(item => {
-    return parseInt(item);
-  })
-  let end = +new Date();
-
-  console.log(`Excution time: ${end - start} ms.`);
-  console.log(result);
-  return result;
-}
-
-findMostFrequent(testArray)
-
-foo(testArray)

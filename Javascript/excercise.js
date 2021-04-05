@@ -279,29 +279,115 @@ Write a function return maximum possible sum of some of its k consecutive number
 //   }
 // }
 
+// function maxOfSumChain(arr, k) {
+//   // write code here.  
+//   let result = 0;
 
-function maxOfSumChain(arr, k) {
-  // write code here.  
-  let result = 0;
+//   for (let i = 0; i < k; i++) {
+//     let maxItem = Math.max(...arr);
+//     arr = arr.filter(x => x < maxItem);
+//     result += maxItem;
+//   }
 
-  for (let i = 0; i < k; i++) {
-    let maxItem = Math.max(...arr);
-    arr = arr.filter(x => x < maxItem);
-    result += maxItem;
-  }
+//   console.log(result);
+//   return result;
 
+// }
+
+// // Test 1 - Expect: 5
+// maxOfSumChain([1, 3, 2], 2);
+
+// // Test 2 - Expect: 11
+// maxOfSumChain([1, 3, 2, 6, 2], 3);
+
+/* -----------------*/
+/*  Excercise 18
+Hãy viết một hàm để tìm một số có số lần lặp lại nhiều nhất trong một dãy các số nguyên.
+
+Input: dãy số
+Output: 1 dãy số bao gồm các số có số lần lặp lại nhiều nhất
+
+ví dụ:
+Input: [1,2,3,4,1,2,2,1]
+Output: [1,2]*/
+
+function findMostFrequent(arr) {
+  // Viết code tại đây!
+  let start = +new Date();
+  let resultArray = [];
+  let item;
+  let repetitionItem;
+  do {
+    item = arr[0];
+    repetitionItem = arr.filter(x => x == item).length;
+    resultArray.push({
+      item: item,
+      repetitionItem: repetitionItem
+    });
+    arr = arr.filter(x => x != item);
+  } while (arr.length > 0);
+
+  // let rsArray = arr.reduce((a, b) => {
+  //   a[b] = a[b] + 1 || 1;
+  // }, {});
+
+  let repeArray = resultArray.map(item => {
+    return item.repetitionItem
+  });
+  let max = Math.max(...repeArray);
+
+  let result = [];
+  resultArray.map(item => {
+    if (item.repetitionItem == max) {
+      result.push(item.item);
+    }
+  });
+  let end = +new Date();
+  console.log(`my function ${end - start} ms`)
   console.log(result);
   return result;
 
 }
 
 
+var arr = [2, 2, 2, 2, 2, 4, 5, 5, 5, 9];
 
 
+function arrayRandom(max, index) {
+  let resultArray = [];
+  for (let i = 0; i < index; i++) {
+    resultArray.push(Math.floor(Math.random() * max));
+  }
 
-// Test 1 - Expect: 5
-maxOfSumChain([1, 3, 2], 2);
+  return resultArray;
+}
 
-// Test 2 - Expect: 11
-maxOfSumChain([1, 3, 2, 6, 2], 3);
+let testArray = arrayRandom(10, 10000000);
 
+function foo(arr) {
+  let start = +new Date();
+
+  let str = arr.reduce((a, b) => {
+    a[b] = a[b] + 1 || 1
+    return a;
+  }, {});
+
+  var a = Object.values(str);
+  var max = Math.max(...a);
+
+  let rs = Object.entries(str).filter((value) => {
+    return value[1] == max;
+  })
+  let result = rs.map(item => {
+    return parseInt(item);
+  })
+  let end = +new Date();
+
+  console.log(`Excution time: ${end - start} ms.`);
+  console.log(result);
+  return result;
+}
+
+findMostFrequent(testArray)
+
+foo(testArray)
